@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
+  <Import Project="..\Tools\PackageReadmes.props" />
+
+  <PropertyGroup>
+    <!-- TUnit test projects require .NET 8 or later, so the integration targets only the LTS the solution builds for. -->
+    <TargetFrameworks>$(DotNetLatestLts)</TargetFrameworks>
+    <RootNamespace>CSF.Screenplay</RootNamespace>
+    <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <IsTestProject>false</IsTestProject>
+    <SonarQubeTestProject>false</SonarQubeTestProject>
+    <Description>A Test Framework Integration for CSF.Screenplay for TUnit</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TUnit.Core" Version="1.75.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj" />
+    <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

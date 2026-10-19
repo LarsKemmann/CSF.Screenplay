@@ -6,6 +6,7 @@
   <Property Name="sonar.exclusions">docs\**\*,*_old\**\*</Property>
   <Property Name="sonar.cpd.exclusions">Tests\**\*,**\*.spec.ts</Property>
   <Property Name="sonar.cs.nunit.reportsPaths">Tests\**\TestResults.xml</Property>
+  <Property Name="sonar.cs.vstest.reportsPaths">Tests\**\TestResults\*.trx</Property>
   <Property Name="sonar.cs.opencover.reportsPaths">TestResults\*.opencover.xml</Property>
   <Property Name="sonar.scanner.scanAll">false</Property>
   <Property Name="sonar.test.inclusions">Tests\**\*,**\*.spec.ts</Property>

@@ -10,6 +10,7 @@ All but one of these techniques (the last) provides full access to [the services
 | Context                                              | Technique                                                |
 | ---------------------------------------------------- | -------------------------------------------------------- |
 | NUnit style test method                              | [Parameter inject into the test] method                  |
+| TUnit style test class                               | [Constructor inject into the test class]                 |
 | Reqnroll style binding class                         | [Constructor inject into the binding] class              |
 | Standalone Screenplay: [`ExecuteAsPerformanceAsync`] | [Create a performance host, or use the service provider] |
 | Persona class                                        | [Constructor inject into the Persona] class              |
@@ -17,6 +18,7 @@ All but one of these techniques (the last) provides full access to [the services
 
 [the services which are added to the container]: InjectableServices.md
 [Parameter inject into the test]: ParameterInjectionForTests.md
+[Constructor inject into the test class]: ConstructorInjectionForTestClasses.md
 [Constructor inject into the binding]: ConstructorInjectionForBindings.md
 [Create a performance host, or use the service provider]: InjectionForStandaloneScreenplay.md
 [Constructor inject into the Persona]: ConstructorInjectIntoThePersona.md

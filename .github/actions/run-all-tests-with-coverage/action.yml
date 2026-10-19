@@ -34,7 +34,14 @@ runs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="${{ inputs.test-results-path }}/$projName.opencover.xml"
+          if grep -q '<TestingPlatformDotnetTestSupport>true' "$proj/$projName.csproj"
+          then
+            # A Microsoft.Testing.Platform test project (TUnit) is an executable of its own: run the assembly directly,
+            # with a TRX report (sonar.cs.vstest.reportsPaths) in place of the VSTest NUnit logger.
+            coverlet "$assemblyPath" --target "dotnet" --targetargs "$assemblyPath --report-trx --report-trx-filename $projName.trx --results-directory $proj/TestResults" -f=opencover -o="${{ inputs.test-results-path }}/$projName.opencover.xml"
+          else
+            coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="${{ inputs.test-results-path }}/$projName.opencover.xml"
+          fi
           exitCode=$?
           if [ $exitCode -ne 0 ]
           then

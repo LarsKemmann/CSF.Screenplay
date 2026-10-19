@@ -14,6 +14,8 @@
   items:
     - name: NUnit 3
       href: gettingStarted/nunit3/index.md
+    - name: TUnit
+      href: gettingStarted/tunit/index.md
     - name: Reqnroll
       href: gettingStarted/reqnroll/index.md
     - name: Process automation
@@ -36,6 +38,8 @@
           items:
             - name: Test parameter injection
               href: dependencyInjection/ParameterInjectionForTests.md
+            - name: Test class injection
+              href: dependencyInjection/ConstructorInjectionForTestClasses.md
             - name: Test binding injection
               href: dependencyInjection/ConstructorInjectionForBindings.md
             - name: Standalone Screenplay

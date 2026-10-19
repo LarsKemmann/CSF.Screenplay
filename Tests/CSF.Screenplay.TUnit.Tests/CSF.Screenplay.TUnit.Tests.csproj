@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CSF.Screenplay</RootNamespace>
+    <!-- TUnit runs on Microsoft.Testing.Platform; this lets `dotnet test` drive it where the SDK still defaults to VSTest. -->
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TUnit" Version="1.75.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay.TUnit\CSF.Screenplay.TUnit.csproj" />
+  </ItemGroup>
+
+</Project>
