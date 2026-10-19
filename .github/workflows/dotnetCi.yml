@@ -44,6 +44,9 @@ jobs:
           js-coverage-path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
+      # The Playwright extension's tests drive Playwright's own Chromium; the install script ships in the build output.
+      - name: Install the Playwright browser
+        run: pwsh Tests/CSF.Screenplay.Playwright.Tests/bin/${{ env.Configuration }}/${{ env.Tfm }}/playwright.ps1 install --with-deps chromium
       - id: run-all-tests
         name: Run all tests, with coverage
         uses: ./.github/actions/run-all-tests-with-coverage

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
+  <Import Project="..\Tools\PackageReadmes.props" />
+
+  <PropertyGroup>
+    <!-- Microsoft.Playwright targets netstandard2.0, but its runtime needs .NET (Core); the .NET Framework target is omitted. -->
+    <TargetFrameworks>netstandard2.0;netstandard2.1;$(DotNetLatestLts)</TargetFrameworks>
+    <RootNamespace>CSF.Screenplay.Playwright</RootNamespace>
+    <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Description>An Extension for CSF.Screenplay providing Abilities &amp; Performables for Microsoft Playwright</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.63.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+    <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj" />
+  </ItemGroup>
+
+</Project>

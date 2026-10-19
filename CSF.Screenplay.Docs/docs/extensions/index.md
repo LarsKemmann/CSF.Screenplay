@@ -14,6 +14,7 @@ These extensions are authored and maintained alongside the main Screenplay libra
 Developers are encouraged and welcomed to create their own extensions, too.
 
 * **[Selenium](selenium/index.md)**: _remote control Web Browsers using Selenium Web Driver_
+* **[Playwright](playwright/index.md)**: _remote control Web Browsers using Microsoft Playwright_
 * **[Web APIs](webApis/index.md)**: _communicate with Web APIs with an HTTP Client_
 
 ## Built-in abilities and performables
